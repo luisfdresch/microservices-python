@@ -1,4 +1,5 @@
-import os, requests
+import os
+import requests
 
 
 def login(request):
@@ -9,7 +10,8 @@ def login(request):
     basicAuth = (auth.username, auth.password)
 
     response = requests.post(
-        f"http://{os.environ.get('AUTH_SVC_ADDRESS')}/login", auth=basicAuth
+        f"http://{os.environ.get('AUTH_SVC_ADDRESS')}/login",
+        auth=basicAuth
     )
 
     if response.status_code == 200:

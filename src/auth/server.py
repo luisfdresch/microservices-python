@@ -1,4 +1,6 @@
-import jwt, datetime, os
+import jwt
+import datetime
+import os
 from flask import Flask, request
 from flask_mysqldb import MySQL
 
@@ -44,14 +46,13 @@ def validate():
 
     if not encoded_jwt:
         return "missing credentials", 401
-
     encoded_jwt = encoded_jwt.split(" ")[1]
 
     try:
         decoded = jwt.decode(
             encoded_jwt, os.environ.get("JWT_SECRET"), algorithms=["HS256"]
         )
-    except:
+    except Exception:
         return "not authorized", 403
 
     return decoded, 200

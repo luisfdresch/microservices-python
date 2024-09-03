@@ -1,5 +1,7 @@
-import smtplib, os, json
+import smtplib
+import os
 from email.message import EmailMessage
+import json
 
 
 def notification(message):

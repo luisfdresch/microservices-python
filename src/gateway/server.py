@@ -1,4 +1,6 @@
-import os, gridfs, pika, json
+import gridfs
+import pika
+import json
 from flask import Flask, request, send_file
 from flask_pymongo import PyMongo
 from auth import validate
